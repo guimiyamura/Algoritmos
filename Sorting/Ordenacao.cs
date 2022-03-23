@@ -1,0 +1,47 @@
+﻿namespace Sorting
+{
+    public static class Ordenacao
+    {
+        // Notacao O(log n)
+        public static int? BinarySort(int[] arr, int item)
+        {
+            int baixo = 0;
+            int alto = arr.Length - 1;
+
+            while (baixo <= alto)
+            {
+                int meio = (baixo + alto) / 2;
+                int chute = arr[meio];
+
+                if (chute == item)
+                    return meio;
+
+                if (chute > item)
+                    alto = meio - 1;
+                else
+                    baixo = meio + 1;
+            }
+
+            return null;
+        }
+
+        //Notacao O(n²)
+        public static void SelectionSort(int[] arr)
+        {
+            int n = arr.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                // Encontra o menor indice no array desordenado 
+                int menor_indice = i;
+                for (int j = i + 1; j < n; j++)
+                    if (arr[j] < arr[menor_indice])
+                        menor_indice = j;
+
+                // Substitui o menor indice encontrado com o primeiro item do array
+                int temp = arr[menor_indice];
+                arr[menor_indice] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+}
