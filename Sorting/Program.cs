@@ -17,6 +17,7 @@ namespace Sorting
             Console.WriteLine("\t3 - Soma com recursividade");
             Console.WriteLine("\t4 - Quantidade com recursividade");
             Console.WriteLine("\t5 - Maior numero com recursividade");
+            Console.WriteLine("\t6 - Quick Sort");
             EscolherMetodoDeOrdenacao(Convert.ToInt32(Console.ReadLine()));
         }        
 
@@ -44,10 +45,23 @@ namespace Sorting
                     MostrarMaiorNumeroPorRecursividade();
                     break;
 
+                case 6:
+                    MostrarQuickSort();
+                    break;
+
                 default:
                     Console.WriteLine("Opcao invalida");
                     break;
             }
+        }
+
+        private static void MostrarQuickSort()
+        {
+            int[] arr = new int[] { 67,12,95,56,85,1,100,23,60,9 };
+            Console.WriteLine($"Array do exemplo {ApresentarArray(arr)}");
+            Ordenacao.QuickSort(arr, 0, arr.Length - 1);
+            Console.WriteLine($"Array ordenado {ApresentarArray(arr)}");
+            Console.ReadKey();
         }
 
         private static void MostrarMaiorNumeroPorRecursividade()

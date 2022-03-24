@@ -43,5 +43,51 @@
                 arr[i] = temp;
             }
         }
+
+        //Notacao O(n log n)
+        public static void QuickSort(int[] arr, int left, int right)
+        {
+            if (left < right)
+            {
+                int pivot = Partition(arr, left, right);
+
+                if (pivot > 1)
+                    QuickSort(arr, left, pivot - 1);
+
+                if (pivot + 1 < right)
+                    QuickSort(arr, pivot + 1, right);
+            }
+
+        }
+
+        private static int Partition(int[] arr, int left, int right)
+        {
+            int pivot = arr[left];
+            while (true)
+            {
+                //se o numero for menor que o pivo, parte para o proximo numero do array
+                //comeca no inicio do array
+                while (arr[left] < pivot) left++;
+
+                //se o numero for maior que o pivo, parte para numero anterior do array
+                //comeca no final do array
+                while (arr[right] > pivot) right--;
+
+                if (left < right)
+                {
+                    if (arr[left] == arr[right]) 
+                        return right;
+
+                    //trocar valores dos indices do array
+                    int temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
     }
 }
