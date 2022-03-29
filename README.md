@@ -5,4 +5,5 @@ Alguns tópicos abordados até o momento:
 - Recursividade
 
 ## Próximos passos
-Incluir testes unitários para substituir os testes _hardcoded_
+- Incluir testes unitários para substituir os testes _hardcoded_
+- Adicionar tempos de execução de cada algoritmo
