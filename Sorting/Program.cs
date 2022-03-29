@@ -18,6 +18,7 @@ namespace Sorting
             Console.WriteLine("\t4 - Quantidade com recursividade");
             Console.WriteLine("\t5 - Maior numero com recursividade");
             Console.WriteLine("\t6 - Quick Sort");
+            Console.WriteLine("\t7 - Grafo");
             EscolherMetodoDeOrdenacao(Convert.ToInt32(Console.ReadLine()));
         }        
 
@@ -47,6 +48,10 @@ namespace Sorting
 
                 case 6:
                     MostrarQuickSort();
+                    break;
+
+                case 7:
+                    Grafo.PesquisaEmLarguraVendedor("Guilherme");
                     break;
 
                 default:
