@@ -19,6 +19,7 @@ namespace Sorting
             Console.WriteLine("\t5 - Maior numero com recursividade");
             Console.WriteLine("\t6 - Quick Sort");
             Console.WriteLine("\t7 - Grafo");
+            Console.WriteLine("\t8 - Dijkstra");
             EscolherMetodoDeOrdenacao(Convert.ToInt32(Console.ReadLine()));
         }        
 
@@ -54,10 +55,36 @@ namespace Sorting
                     Grafo.PesquisaEmLarguraVendedor("Guilherme");
                     break;
 
+                case 8:
+                    MostrarDijkstra();
+                    break;
+
                 default:
                     Console.WriteLine("Opcao invalida");
                     break;
             }
+        }
+
+        private static void MostrarDijkstra()
+        {
+            int[,] L ={
+                {-1,  5, -1, -1, -1,  3, -1, -1},
+                { 5, -1,  2, -1, -1, -1,  3, -1},
+                {-1,  2, -1,  6, -1, -1, -1, 10},
+                {-1, -1,  6, -1,  3, -1, -1, -1},
+                {-1, -1, -1,  3, -1,  8, -1,  5},
+                { 3, -1, -1, -1,  8, -1,  7, -1},
+                {-1,  3, -1, -1, -1,  7, -1,  2},
+                {-1, -1, 10, -1,  5, -1,  2, -1}
+            };
+            Dijkstra clss = new Dijkstra((int)Math.Sqrt(L.Length), L);
+            clss.Run();
+            Console.WriteLine("Solução:");
+            foreach (int i in clss.D)
+            {
+                Console.WriteLine(i);
+            }            
+            Console.ReadKey();
         }
 
         private static void MostrarQuickSort()
